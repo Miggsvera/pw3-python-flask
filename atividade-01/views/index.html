@@ -1,0 +1,77 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarlinhosGames</title>
+
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #f1f1f1;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            background: #00ffff;
+            color: #000;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #ff00ff;
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 0 15px #ff00ff;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bem vindo ao CarlinhosGames</h1>
+    <h2>Seu site para games!!</h2>
+
+    <a href="/lista"><button class="btn">Explorar Jogos</button></a>
+    <a href="/formulario"><button class="btn">Login</button></a>
+    <footer>
+        © 2026 CarlinhosGames - Todos os direitos reservados
+    </footer>
+
+</body>
+</html>
