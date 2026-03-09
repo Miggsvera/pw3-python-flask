@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Bem-vindo a página de consoles</h1>
+    <h3>Consoles</h3>
+    <hr>
+    <h2>Console em Destaque:</h2>
+    {% for chave, valor in console.items() %}
+    <details>
+        <summary>{{ chave }}</summary>
+        <p>{{valor}}</p>
+    </details>
+
+
+    {% endfor %}
+{% endblock content %}  

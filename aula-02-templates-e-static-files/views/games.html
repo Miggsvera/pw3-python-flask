@@ -1,0 +1,20 @@
+{% extends 'base.html %}
+{% block content %}
+    <a href="/"><< Voltar</a>
+    <h1>Bem-vindo a página de Games</h1>
+   <h2>Jogo em Destaque</h2>
+   <p>Game mais jogado pelos nosso usuários:</p>
+   <ul>
+    {# Este  é um comentário em Jinja2 (python e flask) #}
+    <li>Título: <strong>{{ titulo }} </strong></li>
+    <li>Ano:<strong>{{ ano }} </strong></li>
+    <li>Categoria:<strong>{{ categoria }}</strong></li>
+    <li>o jogo {{titulo}} tem {{ 2026-ano }} anos!</li>
+   </ul>
+    <h3>Top Players (Ranking de Jogadores)</h3>
+    <ol>
+        {% for jogador in jogadores: %}
+        <li>{{ jogador }}</li>
+        {% endfor %}
+    </ol>
+{% endblock content %}
