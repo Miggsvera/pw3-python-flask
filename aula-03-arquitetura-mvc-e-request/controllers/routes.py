@@ -8,6 +8,8 @@ def init_app(app):
     # VARIÁVEIS GLOBAIS
     listaConsoles = ['Playstation 5','Xbox One','Super Nintendo','Atari1','3DS']
     
+    listaGames = [{'titulo' : 'CS-GO', 'ano' : 2012, 'categoria' : 'FPS Online', 'plataforma' : 'PC (Windows)'}]
+    
     # Criando a rota principal do site
     @app.route('/')
     # def cria funções no python
@@ -47,3 +49,14 @@ def init_app(app):
         return render_template('consoles.html',
                             console= console,
                             listaconsoles=listaConsoles)
+        
+    # Rota para cadastrar jogo
+    @app.route('/cadgames', methods=['GET', 'POST'])
+    def cadgames():
+        #Verificando se a requisição do usuario é do metodo post
+        # Recebendo os dados do formulário e enviando para página
+        if request.method == 'POST' :
+            listaGames.append({'titulo' : request.form.get('titulo'), 'ano' : request.form.get('ano'), 'categoria' : request.form.get('categoria'), 'plataforma' : request.form.get('plataforma')})
+            
+        return render_template('cadgames.html', 
+                               listaGames = listaGames)
