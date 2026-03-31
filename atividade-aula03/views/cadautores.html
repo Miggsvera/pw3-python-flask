@@ -6,10 +6,10 @@
 
     <form action="{{url_for('cadautores')}}" method="post" class="cadastro-form">
         <label>Obra</label>
-        <input type="text" name="nome" placeholder="Insira o nome da obra." required class="form-control">
+        <input type="text" name="obra" placeholder="Insira o nome da obra." required class="form-control">
 
         <label>Autor</label>
-        <input type="text" name="fabricante" placeholder="Insira o nome do autor." required class="form-control">
+        <input type="text" name="autor" placeholder="Insira o nome do autor." required class="form-control">
 
         <label>Ano</label>
         <input type="text" name="ano" placeholder="Insira o ano de lancamento." required class="form-control">
@@ -32,10 +32,10 @@
             </tr>
         </thead>
         <tbody>
-            {% for autor in listaAutores %}
+            {% for autor in lista_autores %}
             <tr>
-                <td>{{ autor.nome }}</td>
-                <td>{{ autor.fabricante }}</td>
+                <td>{{ autor.obra }}</td>
+                <td>{{ autor.autor }}</td>
                 <td>{{ autor.ano }}</td>
             </tr>
             {% endfor %}

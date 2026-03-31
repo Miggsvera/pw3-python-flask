@@ -5,7 +5,7 @@
     <h3>Autores de manga</h3>
     <hr>
     <h2>Autor em destaque:</h2>
-    {% for chave, valor in console.items() %}
+    {% for chave, valor in manga_destaque.items() %}
     <details>
         <summary>{{ chave }}</summary>
         <p>{{valor}}</p>
@@ -22,11 +22,11 @@
             </tr>
         </thead>
         <tbody>
-            {% for c in listaAutores %}
+            {% for autor in lista_autores %}
             <tr>
-                <td>{{ c.nome }}</td>
-                <td>{{ c.fabricante }}</td>
-                <td>{{ c.ano }}</td>
+                <td>{{ autor.obra }}</td>
+                <td>{{ autor.autor }}</td>
+                <td>{{ autor.ano }}</td>
             </tr>
             {% endfor %}
         </tbody>

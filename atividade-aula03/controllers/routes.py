@@ -3,19 +3,19 @@ from flask import render_template, request, redirect, url_for
 
 # Dados em memória da aplicação
 lista_autores = [
-    {'nome': 'Vagabond', 'fabricante': 'Takehiko Inoue', 'ano': 1998},
-    {'nome': 'Berserk', 'fabricante': 'Kentaro Miura', 'ano': 1989},
-    {'nome': 'Monster', 'fabricante': 'Naoki Urasawa', 'ano': 1994},
-    {'nome': 'Slam Dunk', 'fabricante': 'Takehiko Inoue', 'ano': 1990},
-    {'nome': 'Oyasumi Punpun', 'fabricante': 'Inio Asano', 'ano': 2007}
+    {'obra': 'Vagabond', 'autor': 'Takehiko Inoue', 'ano': 1998},
+    {'obra': 'Berserk', 'autor': 'Kentaro Miura', 'ano': 1989},
+    {'obra': 'Monster', 'autor': 'Naoki Urasawa', 'ano': 1994},
+    {'obra': 'Slam Dunk', 'autor': 'Takehiko Inoue', 'ano': 1990},
+    {'obra': 'Oyasumi Punpun', 'autor': 'Inio Asano', 'ano': 2007}
 ]
 
 lista_mangas = [
     {
         'titulo': 'One Piece',
         'ano': 1997,
-        'categoria': 'Shonen',
-        'plataforma': 'Panini'
+        'genero': 'Shonen',
+        'editora': 'Panini'
     }
 ]
 
@@ -24,27 +24,27 @@ def listar_autores():
     return lista_autores
 
 
-def adicionar_autor(nome, fabricante, ano):
-    if not nome or not fabricante or not ano:
+def adicionar_autor(obra, autor, ano):
+    if not obra or not autor or not ano:
         return
 
-    lista_autores.append({'nome': nome, 'fabricante': fabricante, 'ano': ano})
+    lista_autores.append({'obra': obra, 'autor': autor, 'ano': ano})
 
 
 def listar_mangas():
     return lista_mangas
 
 
-def adicionar_manga(titulo, ano, categoria, plataforma):
-    if not titulo or not ano or not categoria or not plataforma:
+def adicionar_manga(titulo, ano, genero, editora):
+    if not titulo or not ano or not genero or not editora:
         return
 
     lista_mangas.append(
         {
             'titulo': titulo,
             'ano': ano,
-            'categoria': categoria,
-            'plataforma': plataforma
+            'genero': genero,
+            'editora': editora
         }
     )
 
@@ -61,28 +61,28 @@ def init_app(app):
         # criando variáveis para a rota de mangas
         titulo = "Vinland Saga"
         ano = 2005
-        categoria = "Seinen Historico"
-        # Lista de personagens
-        jogadores = ['Thorfinn', 'Askeladd', 'Canute', 'Thors', 'Einar']
+        genero = "Seinen Historico"
+        # Lista de personagens em destaque
+        personagens = ['Thorfinn', 'Askeladd', 'Canute', 'Thors', 'Einar']
 
         # Enviando categorias para html
         return render_template(
             'mangas.html',
             titulo=titulo,
             ano=ano,
-            categoria=categoria,
-            jogadores=jogadores
+            genero=genero,
+            personagens=personagens
         )
 
     @app.route('/autores')
     def autores():
         # Criando um objeto de manga em destaque
-        console = {"Obra": "20th Century Boys", "Autor": "Naoki Urasawa", "Ano": 1999}
+        manga_destaque = {"Obra": "20th Century Boys", "Autor": "Naoki Urasawa", "Ano": 1999}
 
         return render_template(
             'autores.html',
-            console=console,
-            listaAutores=listar_autores()
+            manga_destaque=manga_destaque,
+            lista_autores=listar_autores()
         )
 
     # Rota para cadastrar manga
@@ -92,22 +92,22 @@ def init_app(app):
             adicionar_manga(
                 request.form.get('titulo'),
                 request.form.get('ano'),
-                request.form.get('categoria'),
-                request.form.get('plataforma')
+                request.form.get('genero'),
+                request.form.get('editora')
             )
             return redirect(url_for('cadmangas'))
 
-        return render_template('cadmangas.html', listaMangas=listar_mangas())
+        return render_template('cadmangas.html', lista_mangas=listar_mangas())
 
     # Rota para cadastrar obra/autoria
     @app.route('/cadautores', methods=['GET', 'POST'])
     def cadautores():
         if request.method == 'POST':
             adicionar_autor(
-                request.form.get('nome'),
-                request.form.get('fabricante'),
+                request.form.get('obra'),
+                request.form.get('autor'),
                 request.form.get('ano')
             )
             return redirect(url_for('cadautores'))
 
-        return render_template('cadautores.html', listaAutores=listar_autores())
+        return render_template('cadautores.html', lista_autores=listar_autores())

@@ -11,11 +11,11 @@
         <label>Ano</label>
         <input type="text" name="ano" placeholder="Insira o ano do manga." required class="form-control">
 
-        <label>Categoria</label>
-        <input type="text" name="categoria" placeholder="Insira a categoria do manga." required class="form-control">
+        <label>Genero</label>
+        <input type="text" name="genero" placeholder="Insira o genero do manga." required class="form-control">
 
         <label>Editora</label>
-        <input type="text" name="plataforma" placeholder="Insira a editora do manga." required class="form-control">
+        <input type="text" name="editora" placeholder="Insira a editora do manga." required class="form-control">
 
         <div class="cadastro-actions">
             <input type="submit" value="Cadastrar" class="btn btn-success">
@@ -36,12 +36,12 @@
             </tr>
         </thead>
         <tbody>
-            {% for manga in listaMangas %}
+            {% for manga in lista_mangas %}
             <tr>
                 <td>{{manga.titulo}}</td>
                 <td>{{manga.ano}}</td>
-                <td>{{manga.categoria}}</td>
-                <td>{{manga.plataforma}}</td>
+                <td>{{manga.genero}}</td>
+                <td>{{manga.editora}}</td>
             </tr>
             {% endfor %}
         </tbody>
