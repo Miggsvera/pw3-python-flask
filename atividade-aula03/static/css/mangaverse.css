@@ -1,0 +1,150 @@
+/* Configurações Universais */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos Gerais */
+body {
+    font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+    color: #111;
+    background-color: #f6f6f6;
+    background-image:
+        repeating-linear-gradient(
+            120deg,
+            rgba(0, 0, 0, 0.06) 0px,
+            rgba(0, 0, 0, 0.06) 2px,
+            transparent 2px,
+            transparent 14px
+        ),
+        linear-gradient(180deg, #fafafa 0%, #ededed 100%);
+    line-height: 1.6;
+}
+
+header {
+    background: #0d0d0d;
+    color: white;
+    padding: 0.5rem;
+    text-align: center;
+    border-bottom: 4px solid #fff;
+    box-shadow: 0 3px 0 #000;
+}
+
+footer {
+    background: #0d0d0d;
+    color: white;
+    margin-top: 2rem;
+    padding: 1rem 0.75rem;
+    text-align: center;
+    border-top: 4px solid #fff;
+}
+
+main {
+    width: 1300px;
+    min-height: 100vh;
+    margin: 1.5rem auto;
+    padding: 1rem 3rem;
+    background-color: #ffffff;
+    border-radius: 0;
+    border: 3px solid #111;
+    box-shadow: 8px 8px 0 #000;
+}
+
+img {
+    border-radius: 0;
+    border: 3px solid #111;
+}
+
+h1,
+h2,
+h3,
+p {
+    padding: 10px;
+}
+
+h1,
+h2,
+h3 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 0 #fff, 2px 2px 0 #000;
+}
+
+.navbar {
+    border-top: 2px solid #fff;
+    border-bottom: 3px solid #000;
+}
+
+.table {
+    border: 2px solid #111;
+}
+
+.table thead th {
+    background-color: #111 !important;
+    color: #fff !important;
+    border-color: #111 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.table tbody td {
+    border: 1px solid #111;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+.cadastro-form {
+    max-width: 720px;
+}
+
+.cadastro-form label {
+    margin-top: 10px;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.cadastro-form input.form-control {
+    margin-bottom: 8px;
+    border: 2px solid #111;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.cadastro-actions {
+    margin-top: 12px;
+    display: flex;
+    gap: 8px;
+}
+
+.btn {
+    border-radius: 0;
+    border-width: 2px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.btn-success {
+    background-color: #111;
+    border-color: #111;
+    color: #fff;
+}
+
+.btn-success:hover {
+    background-color: #2a2a2a;
+    border-color: #2a2a2a;
+}
+
+.btn-danger {
+    background-color: #fff;
+    border-color: #111;
+    color: #111;
+}
+
+.btn-danger:hover {
+    background-color: #ededed;
+    border-color: #111;
+    color: #111;
+}

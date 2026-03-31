@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<main>
+    <h1>Bem-vindo a pagina de autores</h1>
+    <h3>Autores de manga</h3>
+    <hr>
+    <h2>Autor em destaque:</h2>
+    {% for chave, valor in console.items() %}
+    <details>
+        <summary>{{ chave }}</summary>
+        <p>{{valor}}</p>
+    </details>
+    {% endfor %}
+
+    <h2>Lista de autores</h2>
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Obra</th>
+                <th>Autor</th>
+                <th>Ano</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in listaAutores %}
+            <tr>
+                <td>{{ c.nome }}</td>
+                <td>{{ c.fabricante }}</td>
+                <td>{{ c.ano }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</main>
+{% endblock content %}

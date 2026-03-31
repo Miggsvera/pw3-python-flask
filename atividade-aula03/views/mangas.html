@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<main>
+
+    <h1>Bem-vindo a pagina de mangas</h1>
+    <h2>Manga em destaque</h2>
+    <p>Manga mais lido pelos nossos usuarios:</p>
+    <ul>
+        {# Este é um comentário em Jinja2 (python e flask) #}
+        <li>Titulo: <strong>{{ titulo }} </strong></li>
+        <li>Ano:<strong>{{ ano }} </strong></li>
+        <li>Categoria:<strong>{{ categoria }}</strong></li>
+        <li>O manga {{titulo}} tem {{ 2026-ano }} anos!</li>
+    </ul>
+    <h3>Top personagens (Favoritos da comunidade)</h3>
+    <ol>
+        {% for jogador in jogadores: %}
+        <li>{{ jogador }}</li>
+        {% endfor %}
+    </ol>
+</main>
+{% endblock content %}
