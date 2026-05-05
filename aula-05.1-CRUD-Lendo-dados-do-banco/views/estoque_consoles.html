@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Controle de estoque de consoles</h2>
+<br>
+
+<details>
+    <summary>[ Cadastrar console ]</summary>
+    <div class="col-md-4">
+        <form action="{{url_for('estoque_consoles')}}" method="post">
+            <input type="text" name="nome" class="form-control" placeholder="Nome do console" required />
+            <input type="text" name="fabricante" class="form-control" placeholder="Fabricante do console" required />
+            <input type="number" name="ano" class="form-control" placeholder="Ano de lançamento" required />
+            <input type="number" name="preco" class="form-control" placeholder="Preço do console" required />
+            <input type="number" name="quantidade" class="form-control" placeholder="Quantidade em estoque" required />
+            <input type="submit" value="Cadastrar" class="btn btn-primary" />
+            <input type="reset" value="Limpar" class="btn btn-secondary" />
+        </form>
+    </div>
+</details>
+<hr>
+
+<table class="table table-bordered table-hover">
+    <!-- Cabeçalho da tabela -->
+    <thead class="table-dark">
+        <tr>
+            <th>Nome</th>
+            <th>Fabricante</th>
+            <th>Ano</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+        </tr>
+    </thead>
+    <!-- Corpo da tabela -->
+    <tbody>
+        {% for console in consoles %}
+        <tr>
+            <td>{{console.nome}}</td>
+            <td>{{console.fabricante}}</td>
+            <td>{{console.ano}}</td>
+            <td>{{console.preco}}</td>
+            <td>{{console.quantidade}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

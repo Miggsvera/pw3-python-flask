@@ -1,5 +1,7 @@
 # Importando o flask para a aplicação
-from flask import render_template, request, redirect, url_for  # do pacote do flask, importe a classe Flask
+from flask import render_template, request, redirect, url_for
+# Importando o model de games
+from models.database import Game  # do pacote do flask, importe a classe Flask
 
 
 
@@ -62,3 +64,10 @@ def init_app(app):
             
         return render_template('cadgames.html', 
                                listaGames = listaGames)
+    
+    # Rota para o crud (estoque de jogos)
+    @app.route('/estoque', methods=['GET', 'POST'])
+    def estoque():
+        # Selecionando todos os jogos da tabela
+        games = Game.query.all()
+        return render_template('estoque.html', games=games)

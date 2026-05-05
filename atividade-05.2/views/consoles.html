@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<main>
+    <h1>Bem-vindo a página de consoles</h1>
+    <h3>Consoles</h3>
+    <hr>
+    <h2>Console em Destaque:</h2>
+    {% for chave, valor in console.items() %}
+    <details>
+        <summary>{{ chave }}</summary>
+        <p>{{valor}}</p>
+    </details>
+    {% endfor %}
+
+    <h2>Lista de Consoles</h2>
+        <ol>
+        {% for c in listaconsoles %}
+            <li>{{ c }}</li>
+        {% endfor %}
+        </ol>
+    
+    <form action="{{url_for('consoles')}}", method="post">
+        <label>Nome do console</label>
+        <input type="text" name="novoConsole">
+        <input type="submit" value="Cadastrar">
+    </form>
+
+</main>
+{% endblock content %}
